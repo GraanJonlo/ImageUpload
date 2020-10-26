@@ -15,7 +15,7 @@ namespace ImageUpload.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Index(IFormFile file)
+		public IActionResult Index(IFormFile file, string someText)
 		{
 			byte[] imageBytes = new byte[file.Length];
 
@@ -26,7 +26,7 @@ namespace ImageUpload.Controllers
 
 			var imageSource = "data:" + file.ContentType + ";base64," + base64EncodedImage;
 
-			return View(new HomeViewModel {Base64ImageSource = imageSource});
+			return View(new HomeViewModel {Base64ImageSource = imageSource, ImageAlt = someText});
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

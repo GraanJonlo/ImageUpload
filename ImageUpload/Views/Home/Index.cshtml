@@ -7,11 +7,12 @@
   <h1>Image uploader</h1>
   <form asp-controller="Home" asp-action="Index" method="post" enctype="multipart/form-data">
     <input type="file" name="file"/>
+    <input type="text" name="someText" />
     <input type="submit"/>
   </form>
   <hr/>
   @if (!string.IsNullOrEmpty(Model.Base64ImageSource))
   {
-    <img src="@Model.Base64ImageSource" alt="Uploaded image"/>
+    <img src="@Model.Base64ImageSource" alt="@Model.ImageAlt"/>
   }
 </div>
